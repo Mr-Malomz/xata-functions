@@ -23,6 +23,6 @@ exports.handler = async function (event, context, callback) {
 
 	return {
 		statusCode: 200,
-		body: JSON.parse(data),
+		body: JSON.stringify(data),
 	};
 };
