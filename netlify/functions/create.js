@@ -6,6 +6,7 @@ exports.handler = async function (event, context, callback) {
 		firstName: bodyRequest.firstName,
 		lastName: bodyRequest.lastName,
 		phoneNumber: bodyRequest.phoneNumber,
+		avatar: 'https://res.cloudinary.com/dtgbzmpca/image/upload/v1667083687/abstract-user-flat-4.png',
 	};
 
 	const response = await fetch(
