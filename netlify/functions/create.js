@@ -1,20 +1,19 @@
 import fetch from 'node-fetch';
 
 exports.handler = async function (firstName, lastName, phoneNumber) {
-	const XATA_URL = 'XATA URL GOES HERE';
-
-	const XATA_API_KEY = 'XATA API GOES HERE';
-
 	const body = { firstName, lastName, phoneNumber };
 
-	const response = await fetch(`${XATA_URL}:main/tables/userDetails/data`, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			Authorization: `Bearer ${XATA_API_KEY}`,
-		},
-		body,
-	});
+	const response = await fetch(
+		`${process.env.XATA_URL}:main/tables/userDetails/data`,
+		{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Bearer ${process.env.XATA_API_KEY}`,
+			},
+			body,
+		}
+	);
 	const data = await response.json();
 
 	return {
