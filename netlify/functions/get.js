@@ -15,7 +15,7 @@ exports.handler = async function () {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.XATA_API_KEY}`,
 			},
-			body,
+			body: JSON.stringify(body),
 		}
 	);
 	const data = await response.json();

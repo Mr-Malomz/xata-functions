@@ -1,7 +1,12 @@
 import fetch from 'node-fetch';
 
-exports.handler = async function (firstName, lastName, phoneNumber) {
-	const body = { firstName, lastName, phoneNumber };
+exports.handler = async function (event, context, callback) {
+	let bodyRequest = JSON.parse(event.body);
+	const body = {
+		firstName: bodyRequest.firstName,
+		lastName: bodyRequest.lastName,
+		phoneNumber: bodyRequest.phoneNumber,
+	};
 
 	const response = await fetch(
 		`${process.env.XATA_URL}:main/tables/userDetails/data`,
@@ -11,7 +16,7 @@ exports.handler = async function (firstName, lastName, phoneNumber) {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${process.env.XATA_API_KEY}`,
 			},
-			body,
+			body: JSON.stringify(body),
 		}
 	);
 	const data = await response.json();
