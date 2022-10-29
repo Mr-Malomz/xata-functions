@@ -1,5 +1,7 @@
+const fetch = require('node-fetch');
+
 exports.handler = async function () {
-	const XATA_URL ='XATA URL GOES HERE';
+	const XATA_URL = 'XATA URL GOES HERE';
 
 	const XATA_API_KEY = 'XATA API GOES HERE';
 

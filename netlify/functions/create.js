@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 exports.handler = async function (firstName, lastName, phoneNumber) {
 	const XATA_URL = 'XATA URL GOES HERE';
 
